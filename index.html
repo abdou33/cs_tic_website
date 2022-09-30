@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+            font-family: 'cairo';
+            src: url(fonts/Cairo/Cairo-VariableFont_wght.ttf);
+    }
+    *{
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        font-family: 'cairo';
+    }
+    .logo{
+        width: 4vw;
+        margin: 1vw;
+    }
+    .navbar{
+        margin: 0 5% 0 8%;
+        width: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+    ul{
+        list-style: none;
+        display: inline;
+        position: absolute;
+        right: 8%;
+    }
+    li{
+        font-size: 1.7vw;
+        list-style: none;
+        display: inline;
+        margin: 0 18px;
+    }
+    li a {
+        color: #2596be;
+    }
+    .principal{
+        margin: 5vw;
+    }
+    p{
+        font-family: 'cairo';
+        color: #1b607a;
+        text-align: center;
+        font-size: 2vw;
+        margin: 0;
+    }
+    #line1 p::first-letter{
+        font-size: 4vw;
+        text-align: center;
+    }
+    #line2 p::first-letter{
+        font-size: 4vw;
+        text-align: center;
+    }
+    .principal p{
+        display: inline-block;
+    }
+    #line1{
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    #line1 p{
+        margin: 0;
+        padding: 0 1% 0 1%;
+    }
+    #line2 p{
+        margin: 0;
+        padding: 0 1% 0 1%;
+    }
+    div{
+        text-align: center;
+    }
+    #location{
+        color: #1d7da0;
+        font-size: 2vw;
+    }
+    .social{
+        width: 35px;
+        padding: 7px;
+        margin-top: 2%;
+    }
+    #connect{
+        text-align: left;
+        width: 70%;
+        margin: 0 15% 0 15%;
+    }
+    #connect h3{
+        color: #1b607a;
+        font-size: 2.6vw;
+    }
+    #connect p{
+        font-size: 1.2vw;
+        color: black;
+        text-align: left;
+    }
+    #socials2{
+        margin: 0;
+        width: 30vw;
+    }
+    footer .foot {
+        width: 98vw;
+        background-color: #1d7da0;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5vw;
+        padding: 1vw;
+    }
+</style>
+<html>
+    <link rel="icon" href="media/logo.png" type="image/x-icon">
+    <title>cs_Tic</title>
+    <head>
+        <div class="navbar">
+                <img class="logo" src="media/logo.png" >
+                <ul>
+                <li><a style="text-decoration: none;" href="#" class="navbar_left_text" >language</a></li>
+                <li><a style="text-decoration: none;" href="#" class="navbar_left_text" >Home</a></li>
+                <li><a style="text-decoration: none;" href="#" class="navbar_left_text" >About</a></li>
+                <li><a style="text-decoration: none;" href="#" class="navbar_left_text">Join us</a></li>
+                <li><a style="text-decoration: none;" href="#" class="navbar_left_text">events</a></li>
+                </ul>
+        </div>
+    </head>
+    <body>
+        <div class="principal">
+            <div id="line1">
+                <p><b>Club</b></p><p><b>Scientifique</b></p>
+            </div>
+            <div id="line2">
+                <p><b>Technologies De L'</b></p><p><b>information et De La</b></p><p><b>communication</b></p>
+            </div>
+            <p id="location">students of Centre Universitaire Illizi</p>
+            <div id="socials">
+                <a href="#"><img class="social" src="media/facebook.png"></a>
+                <a href="#"><img class="social" src="media/discord.png"></a>
+                <a href="#"><img class="social" src="media/yt.png"></a>
+            </div>
+        </div>
+        <div class="infos">
+            <div id="connect">
+                <h3>Connect with us!</h3>
+                <p>Drop by any of our social media outlets to learn more about us,<br> keep up-to-date with our upcoming events, or to chat with our members!</p>
+                <div id="socials2">
+                    <a href="#"><img class="social" src="media/facebook.png"></a>
+                    <a href="#"><img class="social" src="media/discord.png"></a>
+                    <a href="#"><img class="social" src="media/yt.png"></a>
+                </div>
+                <p>Send feedback through our <a href="#">Feedback Form</a></p>
+            </div>
+        </div>
+        <footer>
+            <p class="foot">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
+        </footer>
+    </body>
+</html>
