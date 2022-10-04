@@ -21,20 +21,21 @@
         align-items: center;
         justify-content: left;
     }
-    ul{
+    .left-options{
         list-style: none;
         display: inline;
         position: absolute;
         right: 8%;
     }
-    li{
+    .navbar_left_text{
         font-size: 1.7vw;
         list-style: none;
         display: inline;
         margin: 0 18px;
     }
-    li a {
+    a {
         color: #2596be;
+        text-decoration: none;
     }
     .principal{
         margin: 5vw;
@@ -72,12 +73,12 @@
     div{
         text-align: center;
     }
-    #location{
+    #location_eng{
         color: #1d7da0;
         font-size: 2vw;
     }
     .social{
-        width: 35px;
+        width: 3vw;
         padding: 7px;
         margin-top: 2%;
     }
@@ -107,20 +108,99 @@
         font-size: 1.5vw;
         padding: 1vw;
     }
+    .dropdown-about {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 2vw;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown-lang{
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 4vw;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    .dropdown-about a, .dropdown-lang p {
+        float: none;
+        color: #1b607a;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        font-size: 1.2vw;
+    }
+    #aboutdiv:hover .dropdown-about, #langdiv:hover .dropdown-lang {
+        display: block;
+    }
+    #aboutdiv, #langdiv{
+        display: inline-block;
+    }
+    .dropdown-lang img{
+        width: 2vw;
+        float: left;
+        margin: 0.65vw;
+    }
+    .dropdown-lang p:hover, .asss:hover{
+        background-color: #cfcfcf;
+    }
+    .navbar_left_text:hover{
+        font-size: 1.7vw;
+        font-weight: bold;
+    }
+    .ar, .en, .fr{
+        display: none;
+    }
 </style>
 <html>
     <link rel="icon" href="media/logo.png" type="image/x-icon">
     <title>cs_Tic</title>
     <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <div class="navbar">
                 <img class="logo" src="media/logo.png" >
-                <ul>
-                <li><a style="text-decoration: none;" href="#" class="navbar_left_text" >language</a></li>
-                <li><a style="text-decoration: none;" href="#" class="navbar_left_text" >Home</a></li>
-                <li><a style="text-decoration: none;" href="#" class="navbar_left_text" >About</a></li>
-                <li><a style="text-decoration: none;" href="#" class="navbar_left_text">Join us</a></li>
-                <li><a style="text-decoration: none;" href="#" class="navbar_left_text">events</a></li>
-                </ul>
+            <div class="left-options">
+                <div id="langdiv">
+                    <a href="#" class="navbar_left_text en" id="lang">language</a>
+                    <a href="#" class="navbar_left_text fr" id="lang">Langue</a>
+                    <a href="#" class="navbar_left_text ar" id="lang">اللغة</a>
+                    <div class="dropdown-lang">
+                        <p href="#" onclick="change_lang('ar')"><img src="media/alg.png">العربية</p>
+                        <p href="#" onclick="change_lang('en')"><img src="media/uk.png"> english</p>
+                        <p href="#" onclick="change_lang('fr')"><img src="media/france.png"> français</p>
+                    </div>
+                </div>
+                <a href="#" class="navbar_left_text en" >Home</a>
+                <a href="#" class="navbar_left_text fr" >Accueil</a>
+                <a href="#" class="navbar_left_text ar" >الرئيسية</a>
+                <div id="aboutdiv">
+                    <a href="#" class="navbar_left_text en" id="about">About</a>
+                    <a href="#" class="navbar_left_text fr" id="about">sur nous</a>
+                    <a href="#" class="navbar_left_text ar" id="about">من نحن؟</a>
+                    <div class="dropdown-about">
+                        <a href="#" class="asss en">About US</a>
+                        <a href="#" class="asss fr">sur nous</a>
+                        <a href="#" class="asss ar">من نحن؟</a>
+
+                        <a href="#" class="asss en">members</a>
+                        <a href="#" class="asss fr">members</a>
+                        <a href="#" class="asss ar">الأعضاء</a>
+
+                        <a href="#" class="asss en">our supporters</a>
+                        <a href="#" class="asss fr">nos supporters</a>
+                        <a href="#" class="asss ar">داعمينا,</a>
+                    </div>
+                </div>
+                <a href="#" class="navbar_left_text en">Join us</a>
+                <a href="#" class="navbar_left_text fr">Rejoignez-nous</a>
+                <a href="#" class="navbar_left_text ar">انضم إلينا</a>
+
+                <a href="#" class="navbar_left_text en">events</a>
+                <a href="#" class="navbar_left_text fr">événements</a>
+                <a href="#" class="navbar_left_text ar">الأحداث</a>
+            </div>
         </div>
     </head>
     <body>
@@ -131,27 +211,75 @@
             <div id="line2">
                 <p><b>Technologies De L'</b></p><p><b>information et De La</b></p><p><b>communication</b></p>
             </div>
-            <p id="location">students of Centre Universitaire Illizi</p>
+            <p id="location_eng" class="ar">طلاب المركز الجامعي إليزي</p>
+            <p id="location_eng" class="en">students of Centre Universitaire Illizi</p>
+            <p id="location_eng" class="fr">étudiants du Centre Universitaire Illizi</p>
             <div id="socials">
-                <a href="#"><img class="social" src="media/facebook.png"></a>
-                <a href="#"><img class="social" src="media/discord.png"></a>
-                <a href="#"><img class="social" src="media/yt.png"></a>
+                <a href="https://facebook.com/cstic"><img class="social" src="media/facebook.png"></a>
+                <a href="https://discord.gg/"><img class="social" src="media/discord.png"></a>
+                <a href="https://youtube.com/"><img class="social" src="media/yt.png"></a>
+                <a href="https://github.com/cstic"><img class="social" src="media/github.png"></a>
             </div>
         </div>
         <div class="infos">
             <div id="connect">
-                <h3>Connect with us!</h3>
-                <p>Drop by any of our social media outlets to learn more about us,<br> keep up-to-date with our upcoming events, or to chat with our members!</p>
+                <h3 class="ar">اتصل بنا!</h3>
+                <h3 class="en">Connect with us!</h3>
+                <h3 class="fr">Connecte-toi avec nous!</h3>
+                <p class="en">Drop by any of our social media outlets to learn more about us,<br> keep up-to-date with our upcoming events, or to chat with our members!</p>
+                <p class="ar">تفضل بزيارة أي من وسائل التواصل الاجتماعي الخاصة بنا لمعرفة المزيد عنا ،<br> ابق على اطلاع بأحداثنا القادمة ، أو للدردشة مع أعضائنا!</p>
+                <p class="fr">Passez par l'un de nos médias sociaux pour en savoir plus sur nous,<br> tenez-vous au courant de nos événements à venir ou discutez avec nos membres!</p>
                 <div id="socials2">
-                    <a href="#"><img class="social" src="media/facebook.png"></a>
-                    <a href="#"><img class="social" src="media/discord.png"></a>
-                    <a href="#"><img class="social" src="media/yt.png"></a>
+                    <a href="https://facebook.com/cstic"><img class="social" src="media/facebook.png"></a>
+                    <a href="https://discord.gg/"><img class="social" src="media/discord.png"></a>
+                    <a href="https://youtube.com/"><img class="social" src="media/yt.png"></a>
+                    <a href="https://github.com/cstic"><img class="social" src="media/github.png"></a>
                 </div>
-                <p>Send feedback through our <a href="#">Feedback Form</a></p>
+                <p class="en">Send feedback through our <a href="#">Feedback Form</a></p>
+                <p class="ar">تفضل بزيارة أي من وسائل التواصل الاجتماعي الخاصة بنا لمعرفة المزيد عنا ، <a href="#">نموذج الملاحظات</a></p>
+                <p class="fr">Envoyez vos commentaires via notre<a href="#">Formulaire de commentaires</a></p>
             </div>
         </div>
         <footer>
-            <p class="foot">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
+            <p class="foot en">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
+            <p class="foot fr">Avoir des questions? Envoyez-nous un courriel à<a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
+            <p class="foot ar"><a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a>هل لديك أسئلة؟ راسلنا على</p>
         </footer>
     </body>
+    <script>
+
+        $(document).ready(function() { 
+            lang = navigator.language || navigator.userLanguage;
+            console.log(lang);
+
+            if(lang.includes("ar")){
+                change_lang("ar")
+            }
+            if(lang.includes("en")){
+                change_lang("en")
+            }
+            if(lang.includes("fr")){
+                change_lang("fr")
+            }
+        });
+
+                
+        function change_lang(lang){
+            if(lang == "ar"){
+                $('.en').hide();
+                $('.fr').hide();
+                $('.ar').show();
+            }
+            if(lang == "en"){
+                $('.en').show();
+                $('.fr').hide();
+                $('.ar').hide();
+            }
+            if(lang == "fr"){
+                $('.en').hide();
+                $('.fr').show();
+                $('.ar').hide();
+            }
+        }
+    </script>
 </html>
