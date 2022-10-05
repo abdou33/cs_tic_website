@@ -4,6 +4,10 @@
             font-family: 'cairo';
             src: url(fonts/Cairo/Cairo-VariableFont_wght.ttf);
     }
+    @font-face {
+            font-family: 'passion_one';
+            src: url(fonts/Passion_One/PassionOne-Bold.ttf);
+    }
     *{
         background-color: #ffffff;
         margin: 0;
@@ -47,65 +51,24 @@
         font-size: 2vw;
         margin: 0;
     }
-    #line1 p::first-letter{
-        font-size: 4vw;
-        text-align: center;
-    }
-    #line2 p::first-letter{
-        font-size: 4vw;
-        text-align: center;
-    }
-    .principal p{
-        display: inline-block;
-    }
-    #line1{
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
-    #line1 p{
-        margin: 0;
-        padding: 0 1% 0 1%;
-    }
-    #line2 p{
-        margin: 0;
-        padding: 0 1% 0 1%;
-    }
     div{
         text-align: center;
     }
-    #location{
+    #location_eng{
         color: #1d7da0;
         font-size: 2vw;
     }
-    .social{
-        width: 3vw;
-        padding: 7px;
-        margin-top: 2%;
-    }
-    #connect, .news, .Events, .goals{
-        text-align: left;
-        width: 40%;
-        margin: 0 5% 4% 5%;
-    }
-    #connect h3, .news h3, .Events h3, .goals h3{
-        color: #1b607a;
-        font-size: 2.6vw;
-    }
-    #connect p, .news p, .Events p, .goals p{
-        font-size: 1.2vw;
-        color: black;
-        text-align: left;
-    }
-    #socials2{
-        margin: 0;
-    }
     footer .foot {
-        width: 97vw;
+        width: 98vw;
         background-color: #1d7da0;
         color: white;
         text-decoration: none;
         font-size: 1.5vw;
         padding: 1vw;
+    }
+    footer{
+        position:fixed;
+        bottom:0px;
     }
     .dropdown-about {
         display: none;
@@ -152,9 +115,24 @@
     .ar, .en, .fr{
         display: none;
     }
-    .infos{
-        display: flex;
-        flex-wrap: wrap;
+    /*delete this later*/
+    .en{
+        display: inline-block;
+    }
+    .news{
+        width: 50%;
+        padding: 0;
+        margin: 0 25% 0 25%;;
+        display: block;
+        white-space: initial;
+    }
+    .news, .past_events{
+        text-align: left;
+    }
+    .news h3, .past_events h3{
+        color: #1b607a;
+        font-size: 3vw;
+        font-family: 'passion_one';
     }
 </style>
 <html>
@@ -163,7 +141,7 @@
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <div class="navbar">
-                <a href="index.html"><img class="logo" src="media/logo.png" ></a>
+            <a href="index.html"><img class="logo" src="media/logo.png" ></a>
             <div class="left-options">
                 <div id="langdiv">
                     <a href="" class="navbar_left_text en" id="lang">language</a>
@@ -207,85 +185,23 @@
         </div>
     </head>
     <body>
-        <div class="principal">
-            <div id="line1">
-                <p><b>Club</b></p><p><b>Scientifique</b></p>
-            </div>
-            <div id="line2">
-                <p><b>Technologies De L'</b></p><p><b>information et De La</b></p><p><b>communication</b></p>
-            </div>
-            <p id="location" class="ar">طلاب المركز الجامعي إليزي</p>
-            <p id="location" class="en">students of Centre Universitaire Illizi</p>
-            <p id="location" class="fr">étudiants du Centre Universitaire Illizi</p>
-            <div id="socials">
-                <a href="https://facebook.com/cstic"><img class="social" src="media/facebook2.png"></a>
-                <a href="https://discord.gg/"><img class="social" src="media/discord.png"></a>
-                <a href="https://youtube.com/"><img class="social" src="media/yt.png"></a>
-                <a href="https://github.com/cstic"><img class="social" src="media/github.png"></a>
-            </div>
-        </div>
-        <div class="infos">
-            <div class="Events">
-                <h3 class="en">Events</h3>
-                <h3 class="fr">événements</h3>
-                <h3 class="ar needstoberightaligned">الأحداث</h3>
-
-                <p class="en">See past events <a href="events.html">here</a></p>
-                <p class="fr">Voir les événements passés <a href="events.html">ici</a></p>
-                <p class="ar needstoberightaligned">الأحداث الماضية<a href="events.html">هنا</a></p>
-                <!--delete later-->
-                <p>// last event goes here</p>
-            </div>
-
-            <div class="goals">
-                <h3 class="en">our goals</h3>
-                <h3 class="fr">nos buts</h3>
-                <h3 class="ar needstoberightaligned">أهدافنا</h3>
-                <!--change this later-->
-                <p>ikjd sesiug hriuhgvui eds ef e ef wewett rgtree rtg rewg re yu jyujm jmyiumnyu jmmyutjmuytmjuy yujm uy myum jytn jhgkg yti nmg nv hgmv hgv nghv gyim vngih vnmg iyvig vhgjv </p>
-            </div>
-
-            <div class="news">
-                <h3 class="en">News</h3>
-                <h3 class="fr">Information</h3>
+        <div class="news">
+                <!--tests-->
+                <h3 class="en">news</h3>
+                <h3 class="fr">information</h3>
                 <h3 class="ar needstoberightaligned">الأخبار</h3>
-
-                <p class="en">See past news <a href="news.html">here</a></p>
-                <p class="fr">les nouvelles passées <a href="news.html">ici</a></p>
-                <p class="ar needstoberightaligned">الأخبار السابقة,<a href="news.html">هنا</a></p>
-                <p>// last news goes here</p>
-            </div>
-
-            <div id="connect">
-                <h3 class="ar needstoberightaligned">!اتصل بنا</h3>
-                <h3 class="en">Connect with us!</h3>
-                <h3 class="fr">Connecte-toi avec nous!</h3>
-
-                <p class="en">Drop by any of our social media outlets to learn more about us,<br> keep up-to-date with our upcoming events, or to chat with our members!</p>
-                <p class="ar needstoberightaligned">تفضل بزيارة أي من وسائل التواصل الاجتماعي الخاصة بنا لمعرفة المزيد عنا ،<br> ابق على اطلاع بأحداثنا القادمة ، أو للدردشة مع أعضائنا!</p>
-                <p class="fr">Passez par l'un de nos médias sociaux pour en savoir plus sur nous,<br> tenez-vous au courant de nos événements à venir ou discutez avec nos membres!</p>
-                <div id="socials2">
-                    <a href="https://facebook.com/cstic"><img class="social" src="media/facebook2.png"></a>
-                    <a href="https://discord.gg/"><img class="social" src="media/discord.png"></a>
-                    <a href="https://youtube.com/"><img class="social" src="media/yt.png"></a>
-                    <a href="https://github.com/cstic"><img class="social" src="media/github.png"></a>
-                </div>
-                <p class="en">Send feedback through our <a href="feedback.html">Feedback Form</a></p>
-                <p class="ar needstoberightaligned">تفضل بزيارة أي من وسائل التواصل الاجتماعي الخاصة بنا لمعرفة المزيد عنا ، <a href="feedback.html">نموذج الملاحظات</a></p>
-                <p class="fr">Envoyez vos commentaires via notre<a href="feedback.html">Formulaire de commentaires</a></p>
-            </div>
+                <p>huvds eguyhicisydgfujaeg tyftaeyueygbyweu tbgniycu egdn ywegfiyuegfb nigefygsi yagifgbiasfiyn gsafyuigns igs</p>
         </div>
-
-        <footer>
-            <p class="foot en">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
-            <p class="foot fr">Avoir des questions? Envoyez-nous un courriel à<a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
-            <p class="foot ar"><a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a>هل لديك أسئلة؟ راسلنا على</p>
-        </footer>
     </body>
+    <footer>
+        <p class="foot en">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.dz">cstic@cuillizi.dz</a></p>
+        <p class="foot fr">Avoir des questions? Envoyez-nous un courriel à<a class="foot" href="mailto:cstic@cuillizi.dz">cstic@cuillizi.dz</a></p>
+        <p class="foot ar"><a class="foot" href="mailto:cstic@cuillizi.dz">cstic@cuillizi.dz</a>هل لديك أسئلة؟ راسلنا على</p>
+    </footer>
     <script>
 
-        $(document).ready(function() { 
-            // if there is no languages saved in localstorage => do browser preference
+$(document).ready(function() { 
+            // if there is no languages saved in localstorage => use browser preference
             // else use the language saved
 
             if(localStorage.getItem("language") == null){
@@ -332,4 +248,3 @@
         }
     </script>
 </html>
-<!--needstoberightaligned => ar words-->
