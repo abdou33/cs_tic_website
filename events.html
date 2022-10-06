@@ -188,6 +188,9 @@
                 <h3 class="en">upcoming events</h3>
                 <h3 class="fr">évènements à venir</h3>
                 <h3 class="ar needstoberightaligned">الأحداث القادمة</h3>
+                <div class="coming">
+
+                </div>
                 <!--delete later-->
                 <p>huvds eguyhicisydgfujaeg tyftaeyueygbyweu tbgniycu egdn ywegfiyuegfb nigefygsi yagifgbiasfiyn gsafyuigns igs</p>
             </div>
@@ -196,6 +199,9 @@
                  <h3 class="en">past events</h3>
                  <h3 class="fr">événements passés</h3>
                  <h3 class="ar needstoberightaligned">الأحداث الماضية</h3>
+                 <div class="coming">
+
+                 </div>
                  <!--delete later-->
                  <p>huv dsegu hicisydgfujae gtyftaeyueygbyweutbg niycuegdny wegf iyuegfbni gefygsiyagifg biasfi yngsafyuign sigs</p>
             </div>
@@ -254,5 +260,13 @@ $(document).ready(function() {
             }
             let x = localStorage.getItem("language");
         }
+
+        function update_upcoming_events(){
+            var data = get_upcoming_events();
+            for (let i = 0; i < data.length; i++) {
+                console.log(i);
+            }
+        }
     </script>
+    <script type="text/javascript" src="db.js"></script>
 </html>

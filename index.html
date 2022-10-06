@@ -156,12 +156,22 @@
         display: flex;
         flex-wrap: wrap;
     }
+    #newstime, #eventtime{
+        color: black;
+        font-size: 1.4vw;
+        margin-top: 2%;
+    }
+    #newstitle, #eventtitle{
+        color: #1b607a;
+        font-size: 1.4vw;
+        margin-top: 3%;
+    }
 </style>
 <html>
     <link rel="icon" href="media/logo.png">
     <title>cs_Tic</title>
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="node_modules/jquery.min.js"></script>
         <div class="navbar">
                 <a href="index.html"><img class="logo" src="media/logo.png" ></a>
             <div class="left-options">
@@ -234,15 +244,11 @@
                 <p class="fr">Voir les événements passés <a href="events.html">ici</a></p>
                 <p class="ar needstoberightaligned">الأحداث الماضية<a href="events.html">هنا</a></p>
                 <!--delete later-->
-                <p>// last event goes here</p>
-            </div>
+                <h5 id="eventtime">October 6, 2022 | 8:00 </h5>
+                <p id="eventtitle">CSC Circles Kickoff</p>
+                <p id="eventbody">📢 CSC will be kickstarting one of our most anticipated events: CSC Circles! We’ll be matching participants in groups of 4-6 to create recurring social circles based on your interests 🎮, availability ⏰, location 📍, and more!
 
-            <div class="goals">
-                <h3 class="en">our goals</h3>
-                <h3 class="fr">nos buts</h3>
-                <h3 class="ar needstoberightaligned">أهدافنا</h3>
-                <!--change this later-->
-                <p>ikjd sesiug hriuhgvui eds ef e ef wewett rgtree rtg rewg re yu jyujm jmyiumnyu jmmyutjmuytmjuy yujm uy myum jytn jhgkg yti nmg nv hgmv hgv nghv gyim vngih vnmg iyvig vhgjv </p>
+                    👀 Members of CSC Circles will be a part of a vibrant community within CSC, in which you have the chance to build meaningful connections over the course of a semester and hopefully beyond 🚀 !</p>
             </div>
 
             <div class="news">
@@ -253,7 +259,20 @@
                 <p class="en">See past news <a href="news.html">here</a></p>
                 <p class="fr">les nouvelles passées <a href="news.html">ici</a></p>
                 <p class="ar needstoberightaligned">الأخبار السابقة,<a href="news.html">هنا</a></p>
-                <p>// last news goes here</p>
+                <h5 id="newstime">October 1, 2022</h5>
+                <p id="newstitle">shahanneda</p>
+                <p id="newsbody">UW DSC, UW CSC, and Laurier CS are excited to bring back the Project Program event for Fall 2022.
+
+                    As you may recall, Project Program is a month-long...</p>
+
+            </div>
+
+            <div class="goals">
+                <h3 class="en">our goals</h3>
+                <h3 class="fr">nos buts</h3>
+                <h3 class="ar needstoberightaligned">أهدافنا</h3>
+                <!--change this later-->
+                <p>ikjd sesiug hriuhgvui eds ef e ef wewett rgtree rtg rewg re yu jyujm jmyiumnyu jmmyutjmuytmjuy yujm uy myum jytn jhgkg yti nmg nv hgmv hgv nghv gyim vngih vnmg iyvig vhgjv </p>
             </div>
 
             <div id="connect">
@@ -283,11 +302,9 @@
         </footer>
     </body>
     <script>
-
         $(document).ready(function() { 
             // if there is no languages saved in localstorage => do browser preference
             // else use the language saved
-
             if(localStorage.getItem("language") == null){
                 lang = navigator.language || navigator.userLanguage;
                 console.log(lang);
@@ -330,6 +347,23 @@
             }
             let x = localStorage.getItem("language");
         }
+        
+        function update_last_news(){
+            var data = get_last_news();
+            document.getElementById('newstime').innerHTML = data[0].date;
+            document.getElementById('newsbody').innerHTML = data[0].bodytext;
+            document.getElementById('newstitle').innerHTML = data[0].title;
+        }
+
+        function update_last_news(){
+            var data = get_last_event();
+            document.getElementById('eventtime').innerHTML = data[0].date + "|" + data[0].time;
+            document.getElementById('eventbody').innerHTML = data[0].bodytext;
+            document.getElementById('eventtitle').innerHTML = "- " + data[0].title;
+        }
+
     </script>
+    
+    <script type="text/javascript" src="db.js"></script>
 </html>
 <!--needstoberightaligned => ar words-->
