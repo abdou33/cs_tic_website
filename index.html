@@ -294,6 +294,8 @@
                 <p class="fr">Envoyez vos commentaires via notre<a href="feedback.html">Formulaire de commentaires</a></p>
             </div>
         </div>
+        <form  method="get" src="get_last_event.php">
+        </form>
 
         <footer>
             <p class="foot en">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
@@ -355,7 +357,7 @@
             document.getElementById('newstitle').innerHTML = data[0].title;
         }
 
-        function update_last_news(){
+        function update_last_event(){
             var data = get_last_event();
             document.getElementById('eventtime').innerHTML = data[0].date + "|" + data[0].time;
             document.getElementById('eventbody').innerHTML = data[0].bodytext;

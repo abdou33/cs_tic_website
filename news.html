@@ -246,5 +246,30 @@ $(document).ready(function() {
             }
             let x = localStorage.getItem("language");
         }
+
+        function update_news(){
+            var data = get_news();
+            for (let i = 0; i < data.length; i++) {
+                console.log(i);
+                //add the news one by one in the right positions
+                var div = document.getElementsByClassName("news");
+                var div2 = document.createElement("div");
+                div2.classList += 'news_div';
+                //create the paragraph tag
+                var date_time = document.createElement("p");
+                date_time.classList += 'newstime'
+                var title = document.createElement("p");
+                title.classList += 'newstitle'
+                var body = document.createElement("p");
+                body.classList +'newsbody'
+
+                date_time.innerHTML = data[i].date;
+                title.innerHTML = data[i].title;
+                body.innerHTML = data[i].bodytext;
+
+                div2.appendChild(date_time).appendChild(title).appendChild(body);
+                div.appendChild(div2);
+            }
+        }
     </script>
 </html>
