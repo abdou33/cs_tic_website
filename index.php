@@ -171,7 +171,7 @@
     <link rel="icon" href="media/logo.png">
     <title>cs_Tic</title>
     <head>
-        <script src="node_modules/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <div class="navbar">
                 <a href="index.html"><img class="logo" src="media/logo.png" ></a>
             <div class="left-options">
@@ -185,9 +185,9 @@
                         <p href="" onclick="change_lang('fr')"><img src="media/lang/france.png"> français</p>
                     </div>
                 </div>
-                <a href="index.html" class="navbar_left_text en" >Home</a>
-                <a href="index.html" class="navbar_left_text fr" >Accueil</a>
-                <a href="index.html" class="navbar_left_text ar" >الرئيسية</a>
+                <a href="" class="navbar_left_text en" >Home</a>
+                <a href="" class="navbar_left_text fr" >Accueil</a>
+                <a href="" class="navbar_left_text ar" >الرئيسية</a>
                 <div id="aboutdiv">
                     <a href="" class="navbar_left_text en" id="about">About</a>
                     <a href="" class="navbar_left_text fr" id="about">sur nous</a>
@@ -210,9 +210,9 @@
                 <a href="join_form.html" class="navbar_left_text fr">Rejoignez-nous</a>
                 <a href="join_form.html" class="navbar_left_text ar">انضم إلينا</a>
 
-                <a href="events.html" class="navbar_left_text en">events</a>
-                <a href="events.html" class="navbar_left_text fr">événements</a>
-                <a href="events.html" class="navbar_left_text ar">الأحداث</a>
+                <a href="http://cstic.dz/events.php" class="navbar_left_text en">events</a>
+                <a href="http://cstic.dz/events.php" class="navbar_left_text fr">événements</a>
+                <a href="http://cstic.dz/events.php" class="navbar_left_text ar">الأحداث</a>
             </div>
         </div>
     </head>
@@ -240,15 +240,30 @@
                 <h3 class="fr">événements</h3>
                 <h3 class="ar needstoberightaligned">الأحداث</h3>
 
-                <p class="en">See past events <a href="events.html">here</a></p>
-                <p class="fr">Voir les événements passés <a href="events.html">ici</a></p>
-                <p class="ar needstoberightaligned">الأحداث الماضية<a href="events.html">هنا</a></p>
-                <!--delete later-->
-                <h5 id="eventtime">October 6, 2022 | 8:00 </h5>
-                <p id="eventtitle">CSC Circles Kickoff</p>
-                <p id="eventbody">📢 CSC will be kickstarting one of our most anticipated events: CSC Circles! We’ll be matching participants in groups of 4-6 to create recurring social circles based on your interests 🎮, availability ⏰, location 📍, and more!
+                <p class="en">See past events <a href="http://cstic.dz/events.php">here</a></p>
+                <p class="fr">Voir les événements passés <a href="http://cstic.dz/events.php">ici</a></p>
+                <p class="ar needstoberightaligned">الأحداث الماضية<a href="http://cstic.dz/events.php">هنا</a></p>
+                <!--events-->
+                <?php
 
-                    👀 Members of CSC Circles will be a part of a vibrant community within CSC, in which you have the chance to build meaningful connections over the course of a semester and hopefully beyond 🚀 !</p>
+                require_once ('connection.php');
+                
+                //get event
+                $sql = "SELECT * FROM  events  ORDER BY date, time desc LIMIT 1";
+                $result = $connect->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                    echo '<h5 id="eventtime"> '. $row["date"].' | '. $row["time"].' </h5>';
+                        echo '<p id="eventtitle">'. $row["title"].'</p>';
+                        echo '<p id="eventbody">'. $row["bodytext"].'</p>';
+                        }
+                        } else {
+                        echo '<script>console.log("no events");</script>';
+                        echo '<p>no events  👀</p>';
+                        }
+                ?>
             </div>
 
             <div class="news">
@@ -256,14 +271,27 @@
                 <h3 class="fr">Information</h3>
                 <h3 class="ar needstoberightaligned">الأخبار</h3>
 
-                <p class="en">See past news <a href="news.html">here</a></p>
-                <p class="fr">les nouvelles passées <a href="news.html">ici</a></p>
-                <p class="ar needstoberightaligned">الأخبار السابقة,<a href="news.html">هنا</a></p>
-                <h5 id="newstime">October 1, 2022</h5>
-                <p id="newstitle">shahanneda</p>
-                <p id="newsbody">UW DSC, UW CSC, and Laurier CS are excited to bring back the Project Program event for Fall 2022.
-
-                    As you may recall, Project Program is a month-long...</p>
+                <p class="en">See past news <a href="http://cstic.dz/news.php">here</a></p>
+                <p class="fr">les nouvelles passées <a href="http://cstic.dz/news.php">ici</a></p>
+                <p class="ar needstoberightaligned">الأخبار السابقة,<a href="http://cstic.dz/news.php">هنا</a></p>
+                <!--news-->
+                <?php
+                //get news
+                $sql = " SELECT * FROM  news  ORDER BY date desc LIMIT 1";
+                $result = $connect->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                    echo '<h5 id="newstime"> '. $row["date"].'</h5>';
+                        echo '<p id="newstitle">'. $row["title"].'</p>';
+                        echo '<p id="newsbody">'. $row["bodytext"].'</p>';
+                        }
+                        } else {
+                        echo '<script>console.log("no news");</script>';
+                        echo '<p>no news  👀</p>';
+                        }
+                ?>
 
             </div>
 
@@ -349,23 +377,6 @@
             }
             let x = localStorage.getItem("language");
         }
-        
-        function update_last_news(){
-            var data = get_last_news();
-            document.getElementById('newstime').innerHTML = data[0].date;
-            document.getElementById('newsbody').innerHTML = data[0].bodytext;
-            document.getElementById('newstitle').innerHTML = data[0].title;
-        }
-
-        function update_last_event(){
-            var data = get_last_event();
-            document.getElementById('eventtime').innerHTML = data[0].date + "|" + data[0].time;
-            document.getElementById('eventbody').innerHTML = data[0].bodytext;
-            document.getElementById('eventtitle').innerHTML = "- " + data[0].title;
-        }
-
     </script>
-    
-    <script type="text/javascript" src="db.js"></script>
 </html>
 <!--needstoberightaligned => ar words-->

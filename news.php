@@ -115,48 +115,64 @@
     .ar, .en, .fr{
         display: none;
     }
-    .events{
+    /*delete this later*/
+    .en{
+        display: inline-block;
+    }
+    .news{
         width: 50%;
         padding: 0;
         margin: 0 25% 0 25%;;
         display: block;
-        background-color: tomato;
         white-space: initial;
     }
-    .upcoming_events, .past_events{
+    .news, .past_events{
         text-align: left;
     }
-    .upcoming_events h3, .past_events h3{
+    .news h3, .past_events h3{
         color: #1b607a;
         font-size: 3vw;
         font-family: 'passion_one';
+    }
+    #newstime, #eventtime{
+        color: black;
+        font-size: 1.4vw;
+        margin-top: 2%;
+    }
+    #newstitle, #eventtitle{
+        color: #1b607a;
+        font-size: 1.4vw;
+        margin-top: 3%;
+    }
+    #newsbody {
+    	color: black;
     }
 </style>
 <html>
     <link rel="icon" href="media/logo.png">
     <title>cs_Tic</title>
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <div class="navbar">
-            <a href="index.html"><img class="logo" src="media/logo.png" ></a>
+            <a href="index.php"><img class="logo" src="media/logo.png" ></a>
             <div class="left-options">
                 <div id="langdiv">
                     <a href="" class="navbar_left_text en" id="lang">language</a>
                     <a href="" class="navbar_left_text fr" id="lang">Langue</a>
                     <a href="" class="navbar_left_text ar" id="lang">اللغة</a>
                     <div class="dropdown-lang">
-                        <p href="#" onclick="change_lang('ar')"><img src="media/lang/alg.png">العربية</p>
-                        <p href="#" onclick="change_lang('en')"><img src="media/lang/uk.png"> english</p>
-                        <p href="#" onclick="change_lang('fr')"><img src="media/lang/france.png"> français</p>
+                        <p href="" onclick="change_lang('ar')"><img src="media/lang/alg.png">العربية</p>
+                        <p href="" onclick="change_lang('en')"><img src="media/lang/uk.png"> english</p>
+                        <p href="" onclick="change_lang('fr')"><img src="media/lang/france.png"> français</p>
                     </div>
                 </div>
                 <a href="index.html" class="navbar_left_text en" >Home</a>
                 <a href="index.html" class="navbar_left_text fr" >Accueil</a>
                 <a href="index.html" class="navbar_left_text ar" >الرئيسية</a>
                 <div id="aboutdiv">
-                    <a href="#" class="navbar_left_text en" id="about">About</a>
-                    <a href="#" class="navbar_left_text fr" id="about">sur nous</a>
-                    <a href="#" class="navbar_left_text ar" id="about">من نحن؟</a>
+                    <a href="" class="navbar_left_text en" id="about">About</a>
+                    <a href="" class="navbar_left_text fr" id="about">sur nous</a>
+                    <a href="" class="navbar_left_text ar" id="about">من نحن؟</a>
                     <div class="dropdown-about">
                         <a href="about_us.html" class="asss en">About US</a>
                         <a href="about_us.html" class="asss fr">sur nous</a>
@@ -175,36 +191,40 @@
                 <a href="join_form.html" class="navbar_left_text fr">Rejoignez-nous</a>
                 <a href="join_form.html" class="navbar_left_text ar">انضم إلينا</a>
 
-                <a href="events.html" class="navbar_left_text en">events</a>
-                <a href="events.html" class="navbar_left_text fr">événements</a>
-                <a href="events.html" class="navbar_left_text ar">الأحداث</a>
+                <a href="http://cstic.dz/events.php" class="navbar_left_text en">events</a>
+                <a href="http://cstic.dz/events.php" class="navbar_left_text fr">événements</a>
+                <a href="http://cstic.dz/events.php" class="navbar_left_text ar">الأحداث</a>
             </div>
         </div>
     </head>
     <body>
-        <div class="events">
-            <div class="upcoming_events">
+        <div class="news">
                 <!--tests-->
-                <h3 class="en">upcoming events</h3>
-                <h3 class="fr">évènements à venir</h3>
-                <h3 class="ar needstoberightaligned">الأحداث القادمة</h3>
-                <div class="coming">
+                <h3 class="en">news</h3>
+                <h3 class="fr">information</h3>
+                <h3 class="ar needstoberightaligned">الأخبار</h3>
 
-                </div>
-                <!--delete later-->
-                <p>huvds eguyhicisydgfujaeg tyftaeyueygbyweu tbgniycu egdn ywegfiyuegfb nigefygsi yagifgbiasfiyn gsafyuigns igs</p>
-            </div>
-            <div class="past_events">
-                 <!--tests-->
-                 <h3 class="en">past events</h3>
-                 <h3 class="fr">événements passés</h3>
-                 <h3 class="ar needstoberightaligned">الأحداث الماضية</h3>
-                 <div class="past">
+                <?php
+                require_once ('connection.php');
 
-                 </div>
-                 <!--delete later-->
-                 <p>huv dsegu hicisydgfujae gtyftaeyueygbyweutbg niycuegdny wegf iyuegfbni gefygsiyagifg biasfi yngsafyuign sigs</p>
-            </div>
+                //get news
+                $sql = "SELECT * FROM news ORDER BY date";
+                $result = $connect->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_array($result)) {
+
+                        echo '<h5 id="newstime"> '. $row["date"].'</h5>';
+                        echo '<p id="newstitle">'. $row["title"].'</p>';
+                        echo '<p id="newsbody">'. $row["bodytext"].'</p>';
+                    }
+                } 
+                else {
+                        echo '<script>console.log("no events");</script>';
+                        echo '<p>no news  👀</p>';
+                }
+                ?>
         </div>
     </body>
     <footer>
@@ -215,7 +235,7 @@
     <script>
 
 $(document).ready(function() { 
-            // if there is no languages saved in localstorage => do browser preference
+            // if there is no languages saved in localstorage => use browser preference
             // else use the language saved
 
             if(localStorage.getItem("language") == null){
@@ -260,56 +280,5 @@ $(document).ready(function() {
             }
             let x = localStorage.getItem("language");
         }
-
-        function update_upcoming_events(){
-            var data = get_upcoming_events();
-            for (let i = 0; i < data.length; i++) {
-                console.log(i);
-                //add the events one by one in the right positions
-                var div = document.getElementsByClassName("upcoming_events");
-                var div2 = document.createElement("div");
-                div2.classList += 'past';
-                //create the paragraph tag
-                var date_time = document.createElement("p");
-                date_time.classList += 'eventtime'
-                var title = document.createElement("p");
-                title.classList += 'eventtitle'
-                var body = document.createElement("p");
-                body.classList += 'eventbody'
-
-                date_time.innerHTML = data[i].date + " | " + data[i].time;
-                title.innerHTML = data[i].title;
-                body.innerHTML = data[i].bodytext;
-
-                div2.appendChild(date_time).appendChild(title).appendChild(body);
-                div.appendChild(div2);
-            }
-        }
-
-        function update_past_events(){
-            var data = get_past_events();
-            for (let i = 0; i < data.length; i++) {
-                console.log(i);
-                //add the events one by one in the right positions
-                var div = document.getElementsByClassName("past_events");
-                var div2 = document.createElement("div");
-                div2.classList += 'past';
-                //create the paragraph tag
-                var date_time = document.createElement("p");
-                date_time.classList += 'eventtime'
-                var title = document.createElement("p");
-                title.classList += 'eventtitle'
-                var body = document.createElement("p");
-                body.classList +'eventbody'
-
-                date_time.innerHTML = data[i].date + " | " + data[i].time;
-                title.innerHTML = data[i].title;
-                body.innerHTML = data[i].bodytext;
-
-                div2.appendChild(date_time).appendChild(title).appendChild(body);
-                div.appendChild(div2);
-            }
-        }
     </script>
-    <script type="text/javascript" src="db.js"></script>
 </html>
