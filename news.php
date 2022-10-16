@@ -59,7 +59,7 @@
         font-size: 2vw;
     }
     footer .foot {
-        width: 98vw;
+        width: 97vw;
         background-color: #1d7da0;
         color: white;
         text-decoration: none;
@@ -67,8 +67,9 @@
         padding: 1vw;
     }
     footer{
-        position:fixed;
         bottom:0px;
+        margin:0;
+        padding:0;
     }
     .dropdown-about {
         display: none;
@@ -128,24 +129,28 @@
     }
     .news, .past_events{
         text-align: left;
+        margin-bottom: 2%;
     }
     .news h3, .past_events h3{
         color: #1b607a;
         font-size: 3vw;
         font-family: 'passion_one';
     }
-    #newstime, #eventtime{
+    #newstime{
         color: black;
         font-size: 1.4vw;
         margin-top: 2%;
+        text-align: left;
     }
-    #newstitle, #eventtitle{
+    #newstitle{
         color: #1b607a;
-        font-size: 1.4vw;
-        margin-top: 3%;
+        font-size: 1.6vw;
+        margin-top: 1%;
+        text-align: left;
     }
     #newsbody {
     	color: black;
+        font-size: 1.2vw;
     }
 </style>
 <html>
@@ -203,19 +208,20 @@
                 <h3 class="en">news</h3>
                 <h3 class="fr">information</h3>
                 <h3 class="ar needstoberightaligned">الأخبار</h3>
+                <hr>
 
                 <?php
                 require_once ('connection.php');
 
                 //get news
-                $sql = "SELECT * FROM news ORDER BY date";
+                $sql = "SELECT * FROM news ORDER BY date desc";
                 $result = $connect->query($sql);
                 
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_array($result)) {
 
-                        echo '<h5 id="newstime"> '. $row["date"].'</h5>';
+                        echo '<h5 id="newstime"> '. date('F j, Y',strtotime($row['date'])).'</h5>';
                         echo '<p id="newstitle">'. $row["title"].'</p>';
                         echo '<p id="newsbody">'. $row["bodytext"].'</p>';
                     }

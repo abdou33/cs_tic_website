@@ -22,3 +22,20 @@ mysql> select * from news;
 | 2020-11-02 | title news 3 | uhduihfoihbohuioheouahfgsj hiuhu fiheiuoah iheiuy hye hehfuohe uihui hiuh iuhiu hfukj |
 +------------+--------------+---------------------------------------------------------------------------------------+
 3 rows in set (0.00 sec)
+
+sql queries:
+
+CREATE DATABASE cs_club;
+USE cs_club;
+CREATE TABLE `events` (
+  `date` date DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `bodytext` varchar(500) DEFAULT NULL,
+  `time` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `news` (
+  `date` date DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `bodytext` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

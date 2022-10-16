@@ -59,7 +59,6 @@
         font-size: 2vw;
     }
     footer .foot {
-        width: 98vw;
         background-color: #1d7da0;
         color: white;
         text-decoration: none;
@@ -67,7 +66,8 @@
         padding: 1vw;
     }
     footer{
-        position:fixed;
+        margin:0;
+        padding:0;
         bottom:0px;
     }
     .dropdown-about {
@@ -120,7 +120,6 @@
         padding: 0;
         margin: 0 25% 0 25%;;
         display: block;
-        background-color: tomato;
         white-space: initial;
     }
     .upcoming_events, .past_events{
@@ -131,18 +130,30 @@
         font-size: 3vw;
         font-family: 'passion_one';
     }
-    #newstime, #eventtime{
+    #eventtime{
         color: black;
         font-size: 1.4vw;
-        margin-top: 2%;
+        padding-top: 2%;
     }
-    #newstitle, #eventtitle{
+    #eventtitle{
         color: #1b607a;
-        font-size: 1.4vw;
-        margin-top: 3%;
+        font-size: 1.6vw;
+        padding-top: 1%;
     }
     #eventbody {
     	color: black;
+        font-size: 1.2vw;
+        padding-bottom: 2%;
+    }
+    .newss *{
+        background-color: #dcf6f0;
+    }
+    .newss2 *{
+        background-color: #ffffff;
+    }
+    .newss, .newss2{
+        margin: 3%;
+        padding: 1%;
     }
 </style>
 <html>
@@ -201,6 +212,7 @@
                 <h3 class="en">upcoming events</h3>
                 <h3 class="fr">évènements à venir</h3>
                 <h3 class="ar needstoberightaligned">الأحداث القادمة</h3>
+                <hr>
                 <div class="coming">
 
                 <?php
@@ -209,15 +221,25 @@
                 //get news
                 $sql = "SELECT * FROM  events WHERE date > CURDATE() ORDER BY date, time";
                 $result = $connect->query($sql);
+                $cpt = 0;
                 
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_array($result)) {
-
-                        echo '<h5 id="eventtime"> '. $row["date"].' | '. $row["time"].' </h5>';
+                        if ($cpt % 2 == 1){
+                            echo '<div class="newss2">';
+                        }
+                        else {
+                            echo '<div class="newss">';
+                        }
+                        
+                        echo '<h5 id="eventtime"> '. date('F j, Y',strtotime($row['date'])).' | '. date("g:i A", strtotime($row["time"])).' </h5>';
                         echo '<p id="eventtitle">'. $row["title"].'</p>';
                         echo '<p id="eventbody">'. $row["bodytext"].'</p>';
+                        echo '</div>';
+                        $cpt +=1;
                     }
+                    $cpt =0;
                 } 
                 else {
                         echo '<script>console.log("no events");</script>';
@@ -231,21 +253,31 @@
                  <h3 class="en">past events</h3>
                  <h3 class="fr">événements passés</h3>
                  <h3 class="ar needstoberightaligned">الأحداث الماضية</h3>
+                 <hr>
                  <div class="past">
                  <?php
 
                 //get news
-                $sql = "SELECT * FROM  events WHERE date < CURDATE() ORDER BY date, time";
+                $sql = "SELECT * FROM  events WHERE date < CURDATE() ORDER BY date, time desc";
                 $result = $connect->query($sql);
+                $cpt =0;
                 
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_array($result)) {
-
-                        echo '<h5 id="eventtime"> '. $row["date"].' | '. $row["time"].' </h5>';
+                        if ($cpt % 2 == 1){
+                            echo '<div class="newss2">';
+                        }
+                        else {
+                            echo '<div class="newss">';
+                        }
+                        echo '<h5 id="eventtime"> '. date('F j, Y',strtotime($row['date'])).' | '. date("g:i A", strtotime($row["time"])).' </h5>';
                         echo '<p id="eventtitle">'. $row["title"].'</p>';
                         echo '<p id="eventbody">'. $row["bodytext"].'</p>';
+                        echo '</div>';
+                        $cpt +=1;
                     }
+                    $cpt =0;
                 } 
                 else {
                         echo '<script>console.log("no events");</script>';
