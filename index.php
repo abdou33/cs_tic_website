@@ -170,7 +170,7 @@
 <html>
     <link rel="icon" href="media/logo.png">
     <title>cs_Tic</title>
-    <head>
+    <header>
         <script src="js/jquery.min.js"></script>
         <div class="navbar">
                 <a href="index.html"><img class="logo" src="media/logo.png" ></a>
@@ -215,7 +215,7 @@
                 <a href="http://cstic.dz/events.php" class="navbar_left_text ar">الأحداث</a>
             </div>
         </div>
-    </head>
+    </header>
     <body>
         <div class="principal">
             <div id="line1">
@@ -324,13 +324,13 @@
         </div>
         <form  method="get" src="get_last_event.php">
         </form>
+    </body>
 
         <footer>
             <p class="foot en">Have questions? Email us at <a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
             <p class="foot fr">Avoir des questions? Envoyez-nous un courriel à<a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a></p>
             <p class="foot ar"><a class="foot" href="mailto:cstic@cuillizi.d">cstic@cuillizi.dz</a>هل لديك أسئلة؟ راسلنا على</p>
         </footer>
-    </body>
     <script>
         $(document).ready(function() { 
             // if there is no languages saved in localstorage => do browser preference
