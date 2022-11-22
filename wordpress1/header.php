@@ -9,9 +9,9 @@
                 <a href="index.html"><img class="logo" src="<?php echo get_template_directory_uri().'/assets/media/logo.png'; ?>" ></a>
             <div class="left-options">
                 <div id="langdiv">
-                    <a href="" class="navbar_left_text en" id="lang">language</a>
-                    <a href="" class="navbar_left_text fr" id="lang">Langue</a>
-                    <a href="" class="navbar_left_text ar" id="lang">اللغة</a>
+                    <a class="navbar_left_text en" id="lang">language</a>
+                    <a class="navbar_left_text fr" id="lang">Langue</a>
+                    <a class="navbar_left_text ar" id="lang">اللغة</a>
                     <div class="dropdown-lang">
                         <p href="" onclick="change_lang('ar')"><img src="<?php echo get_template_directory_uri().'/assets/lang/alg.png'; ?>">العربية</p>
                         <p href="" onclick="change_lang('en')"><img src="<?php echo get_template_directory_uri().'/assets/lang/uk.png'; ?>"> english</p>
@@ -30,9 +30,9 @@
                         <a href="about_us.html" class="asss fr">sur nous</a>
                         <a href="about_us.html" class="asss ar">من نحن؟</a>
 
-                        <a href="members.html" class="asss en">members</a>
-                        <a href="members.html" class="asss fr">members</a>
-                        <a href="members.html" class="asss ar">الأعضاء</a>
+                        <a href="wp-content/themes/wordpress1/members.html" class="asss en">members</a>
+                        <a href="wp-content/themes/wordpress1/members.html" class="asss fr">members</a>
+                        <a href="wp-content/themes/wordpress1/members.html" class="asss ar">الأعضاء</a>
 
                         <a href="supporters.html" class="asss en">our supporters</a>
                         <a href="supporters.html" class="asss fr">nos supporters</a>

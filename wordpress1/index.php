@@ -23,9 +23,9 @@
                 <h3 class="fr">événements</h3>
                 <h3 class="ar needstoberightaligned">الأحداث</h3>
 
-                <p class="en">See past events <a href="events.php">here</a></p>
-                <p class="fr">Voir les événements passés <a href="events.php">ici</a></p>
-                <p class="ar needstoberightaligned">الأحداث الماضية<a href="events.php">هنا</a></p>
+                <p class="en">See past events <a href="wp-content/themes/wordpress1/events.php">here</a></p>
+                <p class="fr">Voir les événements passés <a href="wp-content/themes/wordpress1/events.php">ici</a></p>
+                <p class="ar needstoberightaligned">الأحداث الماضية<a href="wp-content/themes/wordpress1/events.php">هنا</a></p>
                 <!--events-->
                 <?php
 
@@ -54,9 +54,9 @@
                 <h3 class="fr">Information</h3>
                 <h3 class="ar needstoberightaligned">الأخبار</h3>
 
-                <p class="en">See past news <a href="news.php">here</a></p>
-                <p class="fr">les nouvelles passées <a href="news.php">ici</a></p>
-                <p class="ar needstoberightaligned">الأخبار السابقة,<a href="news.php">هنا</a></p>
+                <p class="en">See past news <a href="wp-content/themes/wordpress1/news.php">here</a></p>
+                <p class="fr">les nouvelles passées <a href="wp-content/themes/wordpress1/news.php">ici</a></p>
+                <p class="ar needstoberightaligned">الأخبار السابقة,<a href="wp-content/themes/wordpress1/news.php">هنا</a></p>
                 <!--news-->
                 <?php
                 //get news
